@@ -21,4 +21,5 @@ import checkout.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('checkout/', checkout.views.index)
+    path('checkout/', checkout.views.checkout)
 ]
