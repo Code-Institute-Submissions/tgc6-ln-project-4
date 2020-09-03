@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
   </head>
   <body>
+    {% if request.user.is_authenticated  %}
+    <p>Welcome {{request.user}}</p>
+    {% else %}
+    <p>Please <a href="/accounts/login">Login</a></p>
+    {%endif%}
     <h1>main page with product listing</h1>
 
     <!-- Optional JavaScript -->
