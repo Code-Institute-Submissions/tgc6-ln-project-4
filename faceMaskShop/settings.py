@@ -38,13 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',  
     # my apps
-    'products',
-    # 'checkout'
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
+    'products',
+    'reviews',
+    # 'checkout'
     'cart',
 ]
 
@@ -158,3 +159,6 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

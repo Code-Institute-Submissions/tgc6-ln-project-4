@@ -2,5 +2,8 @@
 {%load static %}
 
 {%block content%}
-    <h1>main page with product listing</h1>
+    {% if request.user.is_authenticated %}
+    <h1>welcome, {{request.user}}</h1>
+    {% endif %}
+    <h1>main page with product listing</h1> 
 {%endblock%}
