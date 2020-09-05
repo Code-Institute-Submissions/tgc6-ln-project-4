@@ -24,4 +24,5 @@ urlpatterns = [
     path('checkout/', checkout.views.index),
     path('', products.views.index),
     # path('checkout/', checkout.views.checkout)
+
 ]
