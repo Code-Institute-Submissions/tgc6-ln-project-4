@@ -26,6 +26,7 @@ urlpatterns = [
     path('checkout/', checkout.views.index),
     path('', products.views.index,
          name='home_route'),
+    path('about/', products.views.about, name='about_route'),
     path('reviews/', reviews.views.index),
     # path('checkout/', checkout.views.checkout)
 

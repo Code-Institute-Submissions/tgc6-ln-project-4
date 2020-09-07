@@ -1,0 +1,12 @@
+html{
+font-family: 'Roboto', sans-serif, 'Yanone Kaffeesatz', sans-serif, 'Lemonada',cursive;
+}
+
+.about-img{
+  height: 500px;
+  width: 500px;
+  background: url('/static/img/groceries-safely-exchanging-hands.jpg')no-repeat;
+  background-size: cover;
+}
+
+.about.row{padding-top:100px}

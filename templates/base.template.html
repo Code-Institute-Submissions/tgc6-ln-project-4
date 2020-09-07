@@ -18,12 +18,59 @@
     />
 
     <title>{%block title%} {%endblock%}</title>
-    <link rel="stylesheet" href="{%static 'style.css'%}" />
+    <!-- google fonts -->
+    <link 
+     rel="stylesheet"
+     href="https://fonts.googleapis.com/css?family=Lemonada:wght@500&family=Roboto&family=Yanone+Kaffeesatz&display=swap"/>
+     <!-- custom css -->
+    <link rel="stylesheet" href="{%static 'style.css'%}"/>
   </head>
+
   <body>
-    {%block nav%} {%endblock%}
+  <!-- navbar -->
+    <nav
+      class="navbar navbar-light navbar-expand-lg"
+      style="background-color: #e3f2fd;"
+    >
+      <a class="navbar-brand" href="{% url 'home_route'%}">TheMaskShop</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Product <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about_route'%}"
+              >about<span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
     <div class="container">
-    
       {%if messages%}
       <div class="alert alert-success">
         {%for message in messages%}
@@ -32,9 +79,9 @@
         </div>
         {%endfor%}
       </div>
-      {%endif%} 
+      {%endif%}
     </div>
-        {%block content%} {%endblock%}
+    {%block content%} {%endblock%}
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
