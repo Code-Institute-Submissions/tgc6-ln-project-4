@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('checkout/', checkout.views.index),
-    path('', products.views.index),
+    path('', products.views.index,
+         name='home_route'),
     path('reviews/', reviews.views.index),
     # path('checkout/', checkout.views.checkout)
 
