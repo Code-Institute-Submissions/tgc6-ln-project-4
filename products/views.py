@@ -8,3 +8,7 @@ def index(request):
     return render(request, 'products/index.template.html', {
         'products': products
     })
+
+
+def about(request):
+    return render(request, 'products/about.template.html')

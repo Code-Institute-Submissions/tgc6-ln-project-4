@@ -1,9 +1,6 @@
-{% extends 'base.template.html' %} {%load static %} 
-{%block content%} 
-{% if request.user.is_authenticated %}
-<h4>welcome, {{request.user}}</h4>
-{% endif %}
-
+{% extends 'base.template.html' %} 
+{%load static %} 
+{%block nav%}
 <nav
   class="navbar navbar-light navbar-expand-lg"
   style="background-color: #e3f2fd;"
@@ -30,7 +27,7 @@
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#"
-          >about<span class="sr-only">(curren</span></a
+          >about<span class="sr-only">(current)</span></a
         >
       </li>
     </ul>
@@ -42,5 +39,10 @@
     </form>
   </div>
 </nav>
+{%endblock%}
 
+{%block content%} 
+{% if request.user.is_authenticated %}
+<h4>welcome, {{request.user}}</h4>
+{% endif %}
 {%endblock%}
