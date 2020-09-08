@@ -3,6 +3,50 @@
 
 {%block content%} 
 {% if request.user.is_authenticated %}
-<h4>welcome, {{request.user}}</h4>
+<h6 class="welcome-message">welcome, {{request.user}}</h6>
 {% endif %}
+<div class="row">
+    <div class="main-img">
+    </div>
+</div>
+<!-- card grid from bootstrap -->
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">des</p>
+             </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">des</p>
+             </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">des</p>
+            </div>
+        </div>
+    </div>
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">des</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 {%endblock%}

@@ -1,5 +1,5 @@
 html{
-font-family: 'Roboto', sans-serif, 'Yanone Kaffeesatz', sans-serif, 'Lemonada',cursive;
+font-family: 'Roboto', sans-serif, 'Yanone Kaffeesatz','Lemonada',cursive;
 }
 
 .about-img{
@@ -10,3 +10,12 @@ font-family: 'Roboto', sans-serif, 'Yanone Kaffeesatz', sans-serif, 'Lemonada',c
 }
 
 .about.row{padding-top:100px}
+
+.welcome-message{font-family:'Lemonada';}
+
+.main-img{
+  background: url('/static/img/do-not-panic-tonik-hAZ3TNzQP6w-unsplash.jpg')no-repeat center;
+  background-size: contain;
+  height: 600px;
+  width: 100%;
+}

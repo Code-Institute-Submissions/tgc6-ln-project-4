@@ -70,19 +70,18 @@
         </form>
       </div>
     </nav>
-    <div class="container">
-      {%if messages%}
-      <div class="alert alert-success">
-        {%for message in messages%}
-        <div>
-          {{message}}
+    <div class="contianer">
+        {%if messages%}
+        <div class="alert alert-success">
+            {%for message in messages%}
+            <div>
+            {{message}}
+            </div>
+            {%endfor%}
         </div>
-        {%endfor%}
-      </div>
-      {%endif%}
+        {%endif%}
+        {%block content%} {%endblock%}
     </div>
-    {%block content%} {%endblock%}
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
