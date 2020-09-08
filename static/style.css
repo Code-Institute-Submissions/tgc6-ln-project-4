@@ -14,8 +14,23 @@ font-family: 'Roboto', sans-serif, 'Yanone Kaffeesatz','Lemonada',cursive;
 .welcome-message{font-family:'Lemonada';}
 
 .main-img{
-  background: url('/static/img/do-not-panic-tonik-hAZ3TNzQP6w-unsplash.jpg')no-repeat center;
-  background-size: contain;
-  height: 600px;
-  width: 100%;
+  background: url('/static/img/do-not-panic-tonik-hAZ3TNzQP6w-unsplash.jpg') #7A7F86 no-repeat;
+  background-size:cover;
+  width:100%;
+  height:600px;
+  margin-bottom:20px;
+}
+
+.welcome-message{
+ color:#F0F5FB;
+ padding:10px 25px;
+}
+
+.navbar.navbar-light{
+    padding:20px 20px;
+}
+
+.navbar-brand{
+ font-family:cursive;
+ font-size:25px;
 }
