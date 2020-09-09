@@ -1,52 +1,42 @@
-{% extends 'base.template.html' %} 
-{%load static %} 
-
-{%block content%} 
+{% extends 'base.template.html'%} {% load cloudinary %} {%load static %} 
+{%block content%}
 <div class="row">
-    <div class="main-img">
-        {% if request.user.is_authenticated %}
-            <h6 class="welcome-message">welcome, {{request.user}}</h6>
-        {% endif %}
-    </div>
+  <div class="main-img">
+    {% if request.user.is_authenticated %}
+    <h6 class="welcome-message">welcome, {{request.user}}</h6>
+    {% endif %}
+  </div>
 </div>
-<!-- card grid from bootstrap -->
-<div class="row row-cols-1 row-cols-md-3 my-4">
-    <div class="col mb-4">
-        <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">des</p>
-             </div>
+
+<div class="container mt-4">
+  <section class="mt-4 mb-4">
+    <h2 class="text-center mt-2"><span>Mask</span></h2>
+
+    <div class="row justify-content-lg-start justify-content-center">
+      {% for p in products %}
+
+      <div class="card col-sm-4 col-lg-2 p-0 m-3">
+        <div class="product-image w-100 d-flex justify-content-center">
+          {% cloudinary p.pic width=160 height=220 crop="fill" %}
         </div>
-    </div>
-    <div class="col mb-4">
-        <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">des</p>
-             </div>
+
+        <div class="card-body be-light">
+          <a href="" class="text-dark text-decoration-none"
+            ><h5 class="mb-0 card-title">{{p.title}}</h5></a
+          >
+
+          <p class="text-muted">By {{ p.name }}</p>
+
+          <p class="card-text d-inline text-center">
+            <strong>${{p.selling_price}}</strong>
+          </p>
+
+
         </div>
+      </div>
+      {% endfor %}
     </div>
-    <div class="col mb-4">
-        <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">des</p>
-            </div>
-        </div>
-    </div>
-    <div class="col mb-4">
-        <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">des</p>
-            </div>
-        </div>
-    </div>
+  </section>
 </div>
 
 {%endblock%}
