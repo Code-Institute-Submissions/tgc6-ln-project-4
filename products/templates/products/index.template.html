@@ -22,15 +22,10 @@
 
         <div class="card-body be-light">
           <a href="" class="text-dark text-decoration-none"
-            ><h5 class="mb-0 card-title">{{p.title}}</h5></a
-          >
-
-          <p class="text-muted">By {{ p.name }}</p>
-
+            ><h5 class="mb-0 card-title">{{p.title}}</h5></a>
+          <p class="text">{{ p.name }}</p>
           <p class="card-text d-inline text-center">
-            <strong>${{p.selling_price}}</strong>
-          </p>
-
+            <strong>${{p.selling_price}}</strong></p>
         </div>
       </div>
       {% endfor %}

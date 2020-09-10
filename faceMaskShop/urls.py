@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import checkout.views
+import cart.views
 import products.views
 import reviews.views
 
