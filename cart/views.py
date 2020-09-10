@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404, redirect,reverse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from products.models import Product
 
@@ -6,44 +6,35 @@ from products.models import Product
 
 
 def add_to_cart(request, product_id):
+    # the second argument will be the default value if
+    # if the key does not exist in the session
     cart = request.session.get('shopping_cart', {})
+    # we check if the product_is not in the cart. If so, we will add it
     if product_id not in cart:
         product = get_object_or_404(Product, pk=product_id)
-        # product is found, add it to the cart
+        # product is found, let's add it to the cart
         cart[product_id] = {
             'id': product_id,
             'name': product.name,
-            'cost': float(product.selling_price),
-            'qty': 1,
-            'total_cost': float(product.selling_price),
+            'cost': 99,
+            'qty': 1
         }
+
         # save the cart back to sessions
         request.session['shopping_cart'] = cart
 
-        messages.success(
-            request, f"{cart[product_id]['nome']} has been added to your cart!")
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        messages.success(request, "product has been added to your cart!")
+        return redirect(reverse('home_route'))
     else:
-        cart[product_id]['qty'] = int(cart[product_id]['qty']) + 1
-        cart[product_id]['total_cost'] = float(
-            cart[product_id]['total_cost']) + float(cart[product_id]['cost'])
+        cart[product_id]['qty'] + 1
         request.session['shopping_cart'] = cart
-        messages.success(
-            request, f"{cart[product_id]['name']} has been added to your cart!")
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+        return redirect(reverse('home_route'))
 
 
 def view_cart(request):
     # retrieve the cart
     cart = request.session.get('shopping_cart', {})
-    total = 0
-    for k, v in cart.items():
-        total += float(v['cost']) * int(v['qty'])
 
-    context = {
-        'total': float("{:.2f}".format(total)),
-        'name': 'View Cart',
-        'cart': cart
-    }
-
-    return render(request, 'cart/view_cart.template.html', context)
+    return render(request, 'cart/view_cart.template.html', {
+        'shopping_cart': cart
+    })

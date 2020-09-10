@@ -9,6 +9,11 @@ def index(request):
         'products': products
     })
 
+def view_product_details(request):
+    product = get_object_or_404(Product, pk=product_id)
+    return render(request, 'products/details.template.html', {
+        'products': products
+    })
 
 def about(request):
     return render(request, 'products/about.template.html')

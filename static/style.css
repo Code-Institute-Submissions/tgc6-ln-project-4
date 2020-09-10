@@ -37,14 +37,10 @@ font-family: 'Roboto', sans-serif, 'Yanone Kaffeesatz','Lemonada',cursive;
  font-size:25px;
 }
 
-.footer {
+.footer-1 {
 background-color: #e3f2fd;
 }
 
 .footer-1.address{
 font-size:15px;
-}
-
-.brand-name.footer{
-font-size:28px;
 }
