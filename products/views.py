@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 
@@ -9,11 +9,13 @@ def index(request):
         'products': products
     })
 
-def view_product_details(request):
+
+def view_details(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    return render(request, 'products/details.template.html', {
-        'products': products
+    return render(request, 'products/view_details.template.html', {
+        'product': product
     })
+
 
 def about(request):
     return render(request, 'products/about.template.html')

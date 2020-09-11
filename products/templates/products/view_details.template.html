@@ -1,0 +1,12 @@
+{% extends 'base.template.html'%} {% load cloudinary %} {%load static %}
+{%block content%}
+<div class="container">
+    <div class="row">
+        {% cloudinary product.pic class="col-lg-6 p-0" %}
+        <div class="col-lg-6 p-3 col-sm-10 d-flex flex-column justify-content-center align-items-center">
+            <p class="p-3">{{product.name}}</p>
+            <a class="btn btn-info" href="{% url 'add_to_cart' product_id=product.id%}">Add to cart</a>
+        </div>   
+    </div>
+</div>
+{%endblock%}
