@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from products.models import Product
 
@@ -24,11 +24,11 @@ def add_to_cart(request, product_id):
         request.session['shopping_cart'] = cart
 
         messages.success(request, "product has been added to your cart!")
-        return redirect(reverse('home_route'))
+
     else:
         cart[product_id]['qty'] + 1
-        request.session['shopping_cart'] = cart
-        return redirect(reverse('home_route'))
+        
+        return HttpResponse('Product added')
 
 
 def view_cart(request):
