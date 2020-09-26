@@ -33,8 +33,10 @@
     <nav
       class="navbar navbar-light navbar-expand-lg"
       style="background-color: #e3f2fd;"
-    > <i class="fas fa-head-side-mask"></i>
+     ><div class="navbar wrapper">
+        <i class="fas fa-head-side-mask fa-2x"></i>
         <a class="navbar-brand left" href="{% url 'home_route'%}">TheMaskShop</a>
+      </div>
       <button
         class="navbar-toggler"
         type="button"
@@ -50,7 +52,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="{% url 'home_route'%}"
               >Product <span class="sr-only">(current)</span></a
             >
           </li>
@@ -108,8 +110,8 @@
         </div>
          <div class="footer-2 bottom">
              <div class="contianer">
-                <div class="row d-flex text-center justify-content-center           mb-md-0 mb-3">
-                    <div class="col pb-2">
+                <div class="row d-flex text-center justify-content-center           mb-md-0 pb-3">
+                    <div class="col px-4">
                         <a href="https://www.facebook.com">
                         <i class="fab fa-facebook">
                         </i></a>

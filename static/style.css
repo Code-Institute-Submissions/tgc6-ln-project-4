@@ -48,3 +48,9 @@ background-color: #e3f2fd;
 .footer-1.address{
 font-size:15px;
 }
+
+.navbar.wrapper{
+min-width:250px; /* Minimum width of your wrapper element */
+overflow:hidden;
+display:inline-block;
+}

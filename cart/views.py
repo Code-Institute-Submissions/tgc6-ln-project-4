@@ -27,7 +27,7 @@ def add_to_cart(request, product_id):
 
     else:
         cart[product_id]['qty'] + 1
-        
+
         return HttpResponse('Product added')
 
 
