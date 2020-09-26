@@ -1,7 +1,10 @@
-{% extends 'base.template.html'%} {% load cloudinary %} {%load static %} 
+{% extends 'base.template.html'%} 
+{% load cloudinary %} 
+{%load static %} 
 {%block content%}
 <div class="row">
   <div class="main-img">
+    <!-- Display welcome message -->
     {% if request.user.is_authenticated %}
     <h6 class="welcome-message">welcome, {{request.user}}</h6>
     {% endif %}
@@ -17,7 +20,9 @@
 
       <div class="card col-sm-4 col-lg-2 p-0 m-3">
         <div class="product-image w-100 d-flex justify-content-center">
+            <a href="{% url 'show_product' %}">
           {% cloudinary p.pic width=160 height=220 crop="fill" %}
+            </a>
         </div>
 
         <div class="card-body be-light">

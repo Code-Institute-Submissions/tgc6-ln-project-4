@@ -19,3 +19,6 @@ def view_details(request, product_id):
 
 def about(request):
     return render(request, 'products/about.template.html')
+
+def show_product(request):
+    return render(request, 'products/show_prduct.templates.html')

@@ -7,5 +7,5 @@ urlpatterns = [
     path('details/<product_id>',
          products.views.view_details,
          name='view_details'),
-
+    path('show_product/', products.views.show_product, name='show_product'),
 ]
