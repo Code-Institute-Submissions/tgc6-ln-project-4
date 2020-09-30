@@ -34,8 +34,7 @@ def add_to_cart(request, product_id):
         request.session['shopping_cart'] = cart
 
         # return HttpResponse('Product added')
-    return redirect(reverse('view_cart'),{
-    })
+    return redirect(reverse('view_cart'))
 
 def view_cart(request):
     # retrieve the cart
@@ -43,3 +42,12 @@ def view_cart(request):
     return render(request, 'cart/view_cart.template.html', {
         'cart': cart
     })
+
+def remove_from_cart(request, product_id):
+    cart = request.session.get('shopping_cart', {})
+
+    if product_id in cart:
+        del cart[product_id]
+        request.session['shopping_cart'] = cart
+        messages.success(request, "Item removed from cart successfully!")
+    return redirect(reverse('view_cart'))

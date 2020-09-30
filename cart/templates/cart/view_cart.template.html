@@ -14,8 +14,9 @@
             <li>Total  : {{cart_item.total_cost}}</li>
         </ul>
         </div>
-        
         <p>Total Cost: {{cart_item.total_cost}}</p>
+
+        <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' product_id=cart_item.id %}">Remove</a>
     </div>
 </div>
 {%endfor%}
