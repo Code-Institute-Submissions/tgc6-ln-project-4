@@ -14,12 +14,13 @@ def add_to_cart(request, product_id):
     if product_id not in cart:
         product = get_object_or_404(Product, pk=product_id)
         # product is found, let's add it to the cart
+
         cart[product_id] = {
             'id': product_id,
             'name': product.name,
-            'cost': float(round(product.selling_price,2)),
+            'cost': format(float(product.selling_price),'.2f'),
             'qty': 1,
-            'total_cost' : float(round(product.selling_price,2)),
+            'total_cost' : format(float(product.selling_price),'.2f'),
         }
 
         # save the cart back to sessions
@@ -29,7 +30,7 @@ def add_to_cart(request, product_id):
         # return redirect(reverse('view_cart'))
     else:
         cart[product_id]['qty'] +=1
-        cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
+        cart[product_id]['total_cost'] = format( (float(cart[product_id]['cost']) * cart[product_id]['qty'] ),'.2f')
         # save the cart back to sessions
         request.session['shopping_cart'] = cart
 
@@ -55,9 +56,10 @@ def remove_from_cart(request, product_id):
 def add_number(request, product_id):
     cart = request.session.get('shopping_cart', {})
     cart[product_id]['qty'] +=1
-    cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
+    cart[product_id]['total_cost'] = format( (float(cart[product_id]['cost']) * cart[product_id]['qty'] ),'.2f')
     # save the cart back to sessions
     request.session['shopping_cart'] = cart
+    # messages.success(request, f"Quantity for {cart[product_id]['qty']} has been changed")
     return render(request, 'cart/view_cart.template.html', {
         'cart': cart
     })
@@ -68,7 +70,7 @@ def minus_number(request, product_id):
         del cart[product_id]
     else:
         cart[product_id]['qty'] -=1
-        cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
+        cart[product_id]['total_cost'] = format( (float(cart[product_id]['cost']) * cart[product_id]['qty'] ),'.2f')
     # save the cart back to sessions
     request.session['shopping_cart'] = cart
     return render(request, 'cart/view_cart.template.html', {

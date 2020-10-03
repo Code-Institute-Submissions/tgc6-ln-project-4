@@ -9,7 +9,9 @@
         <div class="card-title">
         <ul>
             <li>Name : {{cart_item.name}}</li> 
-            <li>Item Cost : ${{cart_item.cost}}</li>
+            <li>Item Cost : 
+            {{ cart_item.cost }}
+            </li>
             <li>Quantity : {{cart_item.qty}} 
                 <button><a href="{% url 'minus_number' product_id=cart_item.id %}">-</a></button>
                 <button><a href="{% url 'add_number' product_id=cart_item.id %}">+</a></button>

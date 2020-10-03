@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 class Product(models.Model):
     name = models.CharField(blank=False, max_length=80)
     selling_price = models.DecimalField(blank=False,
-                                        max_digits=4,
+                                        max_digits=5,
                                         decimal_places=2)
     quantity = models.IntegerField(blank=False)
     pic = CloudinaryField()
