@@ -17,9 +17,9 @@ def add_to_cart(request, product_id):
         cart[product_id] = {
             'id': product_id,
             'name': product.name,
-            'cost': int(product.selling_price * 100),
+            'cost': float(round(product.selling_price,2)),
             'qty': 1,
-            'total_cost' : int(product.selling_price * 100),
+            'total_cost' : float(round(product.selling_price,2)),
         }
 
         # save the cart back to sessions
@@ -29,7 +29,7 @@ def add_to_cart(request, product_id):
         # return redirect(reverse('view_cart'))
     else:
         cart[product_id]['qty'] +=1
-        cart[product_id]['total_cost'] =  cart[product_id]['cost'] * cart[product_id]['qty']
+        cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
         # save the cart back to sessions
         request.session['shopping_cart'] = cart
 
@@ -51,3 +51,23 @@ def remove_from_cart(request, product_id):
         request.session['shopping_cart'] = cart
         messages.success(request, "Item removed from cart successfully!")
     return redirect(reverse('view_cart'))
+
+def add_number(request, product_id):
+    cart = request.session.get('shopping_cart', {})
+    cart[product_id]['qty'] +=1
+    cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
+    # save the cart back to sessions
+    request.session['shopping_cart'] = cart
+    return render(request, 'cart/view_cart.template.html', {
+        'cart': cart
+    })
+
+def minus_number(request, product_id):
+    cart = request.session.get('shopping_cart', {})
+    cart[product_id]['qty'] -=1
+    cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
+    # save the cart back to sessions
+    request.session['shopping_cart'] = cart
+    return render(request, 'cart/view_cart.template.html', {
+        'cart': cart
+    })

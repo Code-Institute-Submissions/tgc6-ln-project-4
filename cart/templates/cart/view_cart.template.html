@@ -10,11 +10,13 @@
         <ul>
             <li>Name : {{cart_item.name}}</li> 
             <li>Item Cost : ${{cart_item.cost}}</li>
-            <li>Quantity : {{cart_item.qty}}</li>
+            <li>Quantity : {{cart_item.qty}} 
+                <button><a href="{% url 'minus_number' product_id=cart_item.id %}">-</a></button>
+                <button><a href="{% url 'add_number' product_id=cart_item.id %}">+</a></button>
+            </li>
             <li>Total  : {{cart_item.total_cost}}</li>
         </ul>
         </div>
-        <p>Total Cost: {{cart_item.total_cost}}</p>
 
         <a class="btn btn-danger btn-sm" href="{% url 'remove_from_cart' product_id=cart_item.id %}">Remove</a>
     </div>
