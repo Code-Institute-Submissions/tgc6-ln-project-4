@@ -64,8 +64,11 @@ def add_number(request, product_id):
 
 def minus_number(request, product_id):
     cart = request.session.get('shopping_cart', {})
-    cart[product_id]['qty'] -=1
-    cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
+    if cart[product_id]['qty'] == 1:
+        del cart[product_id]
+    else:
+        cart[product_id]['qty'] -=1
+        cart[product_id]['total_cost'] = cart[product_id]['cost'] * cart[product_id]['qty']
     # save the cart back to sessions
     request.session['shopping_cart'] = cart
     return render(request, 'cart/view_cart.template.html', {
