@@ -17,7 +17,6 @@
                 <button><a href="{% url 'add_number' product_id=cart_item.id %}">+</a></button>
             </li>
             <li>Total  : {{cart_item.total_cost}}</li>
-            <a class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
         </ul>
         </div>
 
@@ -25,6 +24,7 @@
     </div>
 </div>
 {%endfor%}
+            <a class="btn btn-success" href="{% url 'charge' %}">Checkout</a>
 
 {{product_id}}
 <h1>Total: {{total}}</h1>
