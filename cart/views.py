@@ -64,9 +64,8 @@ def add_number(request, product_id):
     # save the cart back to sessions
     request.session['shopping_cart'] = cart
     # messages.success(request, f"Quantity for {cart[product_id]['qty']} has been changed")
-    return render(request, 'cart/view_cart.template.html', {
-        'cart': cart
-    })
+    return redirect(reverse('view_cart'))
+
 
 def minus_number(request, product_id):
     cart = request.session.get('shopping_cart', {})
@@ -77,6 +76,5 @@ def minus_number(request, product_id):
         cart[product_id]['total_cost'] = format( (float(cart[product_id]['cost']) * cart[product_id]['qty'] ),'.2f')
     # save the cart back to sessions
     request.session['shopping_cart'] = cart
-    return render(request, 'cart/view_cart.template.html', {
-        'cart': cart
-    })
+    return redirect(reverse('view_cart'))
+
