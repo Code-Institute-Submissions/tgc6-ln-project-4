@@ -4,11 +4,9 @@ from products.models import Product
 
 # Create your views here.
 def add_to_cart(request, product_id):
-    # the second argument will be the default value if
-    # if the key does not exist in the session
-    
-    
+    # load in the cart details
     cart = request.session.get('shopping_cart', {})
+    final_total = 0
     
     # we check if the product_is not in the cart. If so, we will add it
     if product_id not in cart:
@@ -25,7 +23,6 @@ def add_to_cart(request, product_id):
 
         # save the cart back to sessions
         request.session['shopping_cart'] = cart
-
         messages.success(request, "product has been added to your cart!")
         # return redirect(reverse('view_cart'))
     else:
@@ -40,8 +37,15 @@ def add_to_cart(request, product_id):
 def view_cart(request):
     # retrieve the cart
     cart = request.session.get('shopping_cart', {})
+    sum = 0
+    
+    for item in cart:
+        product_total = cart[ item ]['total_cost']
+        sum = format( float(sum) + float(product_total), '.2f')
+
     return render(request, 'cart/view_cart.template.html', {
-        'cart': cart
+        'cart': cart,
+        'final_total' : sum
     })
 
 def remove_from_cart(request, product_id):

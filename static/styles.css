@@ -19,8 +19,8 @@ body {
     height: 300px;
 }
 
-#introduction h2 {
-    letter-spacing: 4px;
+.ls-4 {
+    letter-spacing: 8px;
 }
 .ls-2 {
     letter-spacing: 2px;

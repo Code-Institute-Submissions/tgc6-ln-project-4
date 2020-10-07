@@ -14,9 +14,9 @@ from django.contrib.sites.models import Site
 
 def charge(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    cart = request.session.get('shopping_cart', {})
-
-
+    # cart = request.session.get('shopping_cart', {})
+    # request.session['shopping_cart'] = cart
+    
     if request.method == 'GET':
         amount = 100
         key = settings.STRIPE_PUBLISHABLE_KEY  # 1
