@@ -6,7 +6,6 @@ from products.models import Product
 def add_to_cart(request, product_id):
     # load in the cart details
     cart = request.session.get('shopping_cart', {})
-    final_total = 0
     
     # we check if the product_is not in the cart. If so, we will add it
     if product_id not in cart:

@@ -9,9 +9,9 @@
 		<thead>
 			<tr>
 				<th scope="col">Description</th>
-				<th scope="col">Quantity</th>
-				<th scope="col">Price</th>
-				<th scope="col">Total</th>
+				<th scope="col" class="text-center">Quantity</th>
+				<th scope="col" class="text-center">Price</th>
+				<th scope="col" class="text-center">Total</th>
                 <th></th>    
 			</tr>
 		</thead>
@@ -21,14 +21,10 @@
 			{% for key, cart_item in cart.items %}
 			<tr>
 				<th>{{cart_item.name}}</th>
-				<td>
-					<a class="badge badge-dark px-2" href="{% url 'minus_number' product_id=cart_item.id %}"> - </a>
-                    &nbsp&nbsp {{cart_item.qty}} &nbsp&nbsp
-					<a class="badge badge-dark px-2" href="{% url 'add_number' product_id=cart_item.id %}"> + </a>
-				</td>
-				<td>$ {{ cart_item.cost }}</td>
-				<td>$ {{cart_item.total_cost}}</td>
-                <td><a class="text-danger font-italic" href="{% url 'remove_from_cart' product_id=cart_item.id %}">X remove</a>
+				<td class="text-center">{{cart_item.qty}}</td>
+				<td class="text-center">$ {{ cart_item.cost }}</td>
+				<td class="text-center">$ {{cart_item.total_cost}}</td>
+                <td>
                 </td>
 			</tr>
             {%endfor%}
@@ -37,6 +33,12 @@
                 <td colspan="5">There is no item in the cart</td>
             </tr>
             {% endif %}
+            <tr>
+                <td colspan="2"></td>
+                <td class="font-weight-bold text-center">Total : </td>
+                <td class="text-center"> $ {{ final_total }}</td>
+                <td></td>
+            </tr>
 		</tbody>
 	</table>
     <form method="POST">

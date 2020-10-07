@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, reverse
 from django.views.decorators.csrf import csrf_exempt
 from products.views import index
+from django.contrib import messages
 
 # import settings so that we can access the public stripe key
 from django.conf import settings
@@ -16,13 +17,22 @@ def charge(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     # cart = request.session.get('shopping_cart', {})
     # request.session['shopping_cart'] = cart
-    
+    cart = request.session.get('shopping_cart', {})
+    sum = 0
+    # Sum up the total to be charged
+    for item in cart:
+        product_total = cart[ item ]['total_cost']
+        sum = sum + float(product_total)
+
+    # Stripe charge script
     if request.method == 'GET':
-        amount = 100
+        amount = sum * 100
         key = settings.STRIPE_PUBLISHABLE_KEY  # 1
         return render(request, 'checkout/charge.template.html', {
         'key': key,
-        'amount': amount
+        'amount': sum * 100,
+        'cart' : cart,
+        'final_total' : format(sum,'.2f')
         })
     else:
         stripe.api_key = settings.STRIPE_SECRET_KEY #2
@@ -33,4 +43,6 @@ def charge(request):
             source=request.POST['stripeToken']       
         )     
         request.session['shopping_cart'] = {}
+        messages.success(request, "Thank you for making the purchase! You will receive your items within 7 working days")
+
         return redirect(reverse(index))
