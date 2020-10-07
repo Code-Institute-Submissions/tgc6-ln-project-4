@@ -1,0 +1,27 @@
+body {
+  font-family: "Roboto", sans-serif, "Yanone Kaffeesatz", "Lemonada", cursive;
+  /* background: red; */
+}
+
+.brand-name {
+    letter-spacing:5px;
+    font-size: 180%;
+}
+.nav-link {
+    letter-spacing: 4px;
+    margin: 5px 30px;
+}
+#hero-div {
+    background-image: url("../static/images/hero-image.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}
+
+#introduction h2 {
+    letter-spacing: 4px;
+}
+.ls-2 {
+    letter-spacing: 2px;
+}

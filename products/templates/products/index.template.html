@@ -1,39 +1,50 @@
-{% extends 'base.template.html'%} 
+{% extends 'base.template.html' %} 
 {% load cloudinary %} 
 {%load static %} 
 {%block content%}
-<div class="row">
-  <div class="main-img">
-
+<main>
+  <!-- Main image -->
+  <div id="hero-div"></div>
+  <!-- Introduction to the website -->
+  <div id="introduction" class="p-5">
+    <h2>IT IS OFFICIAL</h2>
+    <p class="ls-2">
+      It looks like we’re going to be wearing face masks for a while, which is
+      all the more reason to find one that you like. The CDC has been
+      recommended. ing that people wear masks when going out in public for
+      weeks. must wear masks in public places where social distancing six feet
+      is not possible. (Cuomo specified that people would not be jailed for not
+      wearing a mask, but fines could be issued.) Similar orders have been
+      issued in New Jersey and Puerto Rico, but wearing a fabric mask as a
+      civilian is now common sense, provided you can afford and access one. So
+      for the foreseeable future, we’ll be wearing masks to the grocery store,
+      on walks and runs, and maybe even after the crisis abates. Given the
+      prevalence of mask selfies, it’s likely that masks will start to become
+      fashion items, rather than merely functional.
+    </p>
   </div>
-</div>
-
-<div class="container mt-4">
-  <section class="mt-4 mb-4">
-    <h2 class="text-center mt-2"><span>Mask</span></h2>
-
-    <div class="row justify-content-lg-start justify-content-center">
-      {% for p in products %}
-
-      <div class="card col-sm-4 col-lg-2 p-0 m-3">
-        <div class="product-image w-100 d-flex justify-content-center">
-            <a href="{% url 'view_details' product_id=p.id %}">
-            {% cloudinary p.pic width=160 height=220 crop="fill" %}
-            </a>
-        </div>
-
-        <div class="card-body be-light">
-          <a href="" class="text-dark text-decoration-none"
-            ><h5 class="mb-0 card-title">{{p.title}}</h5></a>
-          <p class="text">{{ p.name }}</p>
-          <p class="card-text d-inline text-center">
-          <strong>${{p.selling_price}}</strong></p>
-
-        </div>
+  <!-- Display all products -->
+  <div class="d-flex justify-content-lg-start justify-content-center">
+    {% for p in products %}
+    <div class="card col-sm-4 col-lg-2 p-0 m-3">
+      <div class="product-image w-100 d-flex justify-content-center">
+        <a href="{% url 'view_details' product_id=p.id %}">
+        {% cloudinary p.pic width=160 height=220 crop="fill" %}
+        </a>
       </div>
-      {% endfor %}
-    </div>
-  </section>
-</div>
 
+      <div class="card-body be-light">
+        <a href="" class="text-dark text-decoration-none"
+          ><h5 class="mb-0 card-title">{{p.title}}</h5></a
+        >
+        <p class="text">{{ p.name }}</p>
+        <p class="card-text d-inline text-center">
+        <span class="text-danger bg-warning p-2 font-italic">Enjoy 30% off</span>
+          <strong>${{p.selling_price}}</strong>
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
 {%endblock%}

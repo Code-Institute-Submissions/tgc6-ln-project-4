@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'cloudinary',
     'products',
-    'reviews',
     'cart',
     'checkout'
 ]
@@ -155,12 +154,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
@@ -175,3 +171,4 @@ CLOUDINARY = {
     'api_key': os.environ.get("CLOUDINARY_API_KEY"),
     'api_secret': os.environ.get("CLOUDINARY_API_SECRET"),
 }
+
