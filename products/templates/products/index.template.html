@@ -1,10 +1,15 @@
-{% extends 'base.template.html' %} 
-{% load cloudinary %} 
-
-{%block content%}
+{% extends 'base.template.html' %} {% load cloudinary %} {%block content%}
 <main>
   <!-- Main image -->
-  <div id="hero-div"></div>
+  <div id="hero-div">
+    {% if messages %}
+    <div class="alert alert-success">
+      {% for message in messages %}
+      <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
   <!-- Introduction to the website -->
   <div class="p-5">
     <h2 class="ls-4">IT IS OFFICIAL</h2>
@@ -29,7 +34,7 @@
     <div class="card col-sm-4 col-lg-2 p-0 m-3">
       <div class="product-image w-100 d-flex justify-content-center">
         <a href="{% url 'view_details' product_id=p.id %}">
-        {% cloudinary p.pic width=160 height=220 crop="fill" %}
+          {% cloudinary p.pic width=160 height=220 crop="fill" %}
         </a>
       </div>
 
@@ -39,7 +44,9 @@
         >
         <p class="text">{{ p.name }}</p>
         <p class="card-text d-inline text-center">
-        <span class="text-danger bg-warning p-2 font-italic">Enjoy 30% off</span>
+          <span class="text-danger bg-warning p-2 font-italic"
+            >Enjoy 30% off</span
+          >
           <strong>${{p.selling_price}}</strong>
         </p>
       </div>
