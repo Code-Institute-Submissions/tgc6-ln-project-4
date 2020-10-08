@@ -1,16 +1,26 @@
-{% extends "account/base.html" %}
+{% extends "base.template.html" %}
 
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block title %}{% trans "Sign In" %}{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login to get Mask{% endblock %}
+
+
 
 {% block content %}
-
-<h1>{% trans "Sign In" %}</h1>
-
+<section class="p-5 d-flex justify-content-center align-items-center" >
+{% if messages %}
+<div class="alert alert-success">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="border p-4 rounded bg-light">
+<h1>Login to start finding your desired mask</h1>
 {% get_providers as socialaccount_providers %}
-
 {% if socialaccount_providers %}
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
@@ -35,12 +45,13 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy}}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
 </form>
-
+</div>
+</section>
 {% endblock %}

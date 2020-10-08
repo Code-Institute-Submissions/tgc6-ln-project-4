@@ -19,8 +19,9 @@
 
     <!-- Custom CSS -->
     <!-- <link rel='stylesheet' href="{% static 'styles.css' %}"/> -->
+    {% block css %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-
+    {% endblock %}
     <title>{% block title %} Stay Safe, Stay Masked! {% endblock %}</title>
   </head>
   <body>
@@ -41,7 +42,7 @@
         </div>
         <!-- LOGO -->
         <div class="d-flex align-items-center flex-column">
-            <img src="../static/images/mask-logo.png" style="height:100px;">
+            <img src="/static/images/mask-logo.png"style="height:100px;"> 
             <a class="brand-name text-center text-dark" href="#">theMASKshop</a>
         </div>
         <!-- Navbar -->
