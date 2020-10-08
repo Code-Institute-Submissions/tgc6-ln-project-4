@@ -29,9 +29,9 @@
     </p>
   </div>
   <!-- Display all products -->
-  <div class="d-flex justify-content-lg-start justify-content-center">
+  <div class="row p-3">
     {% for p in products %}
-    <div class="card col-sm-4 col-lg-2 p-0 m-3">
+    <div class=" col-sm-12 col-md-6 col-lg-3 p-0 mx-auto p-2 text-center">
       <div class="product-image w-100 d-flex justify-content-center">
         <a href="{% url 'view_details' product_id=p.id %}">
           {% cloudinary p.pic width=160 height=220 crop="fill" %}
@@ -44,9 +44,8 @@
         >
         <p class="text">{{ p.name }}</p>
         <p class="card-text d-inline text-center">
-          <span class="text-danger bg-warning p-2 font-italic"
-            >Enjoy 30% off</span
-          >
+          <span class="text-danger bg-warning p-2 font-italic mr-2"
+            >Enjoy 30% off</span>
           <strong>${{p.selling_price}}</strong>
         </p>
       </div>

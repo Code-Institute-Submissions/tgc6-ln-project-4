@@ -26,18 +26,19 @@
   </head>
   <body>
     <header style="position: relative;">
-        <div style="
+        <div class="d-none d-md-block" 
+            style="
             position:absolute;
             top : 20px;
             right:10px;
-            ">
+            ">   
         {% if request.user.is_authenticated %}
             <span class="font-italic font-weight-bold ml-auto"> User : {{request.user}}</span>,
-            <a class="nav-link text-dark font-italic d-inline" href="/accounts/logout"> Logout</a>
+            <a class="text-dark m-0 font-italic py-0 px-1" href="/accounts/logout"> Logout</a>
         {% else %}
-            <a class="nav-link text-dark d-inline" href="/accounts/login">
-            <i class="fas fa-man text-danger"></i>Login</a>|
-            <a class="nav-link text-dark d-inline" href="/accounts/signup"> Sign Up</a>
+            <a class="text-dark" href="/accounts/login">
+            <i class="fas fa-man text-danger"></i>&nbsp <u>Login</u> </a> |
+            <a class="text-dark m-0 py-0 px-1"  href="/accounts/signup"> <u>Sign Up</u></a>
         {% endif %}
         </div>
         <!-- LOGO -->
@@ -79,6 +80,16 @@
                     >
                     </li>
                 </ul>
+        </div>
+        <div class="d-inline d-md-none" >
+        {% if request.user.is_authenticated %}
+            <span class="font-italic font-weight-bold ml-auto mr-0"> User : {{request.user}}</span>, 
+            <a class=" text-dark font-italic m-0 px-1 py-0" href="/accounts/logout"> Logout</a>
+        {% else %}
+            <a class="text-dark" href="/accounts/login">
+            <i class="fas fa-man text-danger"></i>&nbsp <u>Login</u> </a> |
+            <a class="text-dark m-0 py-0 px-1"  href="/accounts/signup"> <u>Sign Up</u></a>
+        {% endif %}
         </div>
         </nav>
     </header>
