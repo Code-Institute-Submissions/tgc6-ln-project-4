@@ -1,0 +1,26 @@
+{% extends 'base.template.html' %} {% load cloudinary %} {%block content%}
+<section class="p-md-5 p-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Item Id</th>
+        <th scope="col">Description</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Selling Price</th>
+        <th scope="col">Picture</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for p in products %}
+      <tr>
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.name}}</td>
+        <td>{{p.quantity}}</td>
+        <td>@{{p.selling_price}}</td>
+        <td>{% cloudinary p.pic width=80 height=80 crop="fill" %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+{%endblock%}

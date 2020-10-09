@@ -41,16 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # my apps
+    # Auth apps
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # additional apps
     'crispy_forms',
     'cloudinary',
+    # my apps
     'products',
     'cart',
-    'checkout'
+    'checkout',
+    'admin_console',
 ]
 
 MIDDLEWARE = [
