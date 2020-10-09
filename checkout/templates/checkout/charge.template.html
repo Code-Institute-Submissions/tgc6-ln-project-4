@@ -10,7 +10,7 @@
 			<tr>
 				<th scope="col">Description</th>
 				<th scope="col" class="text-center">Quantity</th>
-				<th scope="col" class="text-center">Price</th>
+				<th scope="col" class="text-center d-md-block d-none">Price</th>
 				<th scope="col" class="text-center">Total</th>
                 <th></th>    
 			</tr>
@@ -20,9 +20,11 @@
             {% if cart.items|length > 0 %}
 			{% for key, cart_item in cart.items %}
 			<tr>
-				<th>{{cart_item.name}}</th>
+				<th>{{cart_item.name}}
+                <span class=" d-md-none d-block">( $ {{ cart_item.cost }} )</span>
+                </th>
 				<td class="text-center">{{cart_item.qty}}</td>
-				<td class="text-center">$ {{ cart_item.cost }}</td>
+				<td class="text-center d-md-block d-none">$ {{ cart_item.cost }}</td>
 				<td class="text-center">$ {{cart_item.total_cost}}</td>
                 <td>
                 </td>
@@ -34,8 +36,8 @@
             </tr>
             {% endif %}
             <tr>
-                <td colspan="2"></td>
-                <td class="font-weight-bold text-center">Total : </td>
+                <td colspan="2" class="font-weight-bold text-left">Total amount to be charged : </td>
+                <td class="d-md-block d-none"></td>
                 <td class="text-center"> $ {{ final_total }}</td>
                 <td></td>
             </tr>
