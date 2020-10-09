@@ -10,7 +10,12 @@
 
 
 {% block content %}
-<section class="p-5 d-flex justify-content-center align-items-center" >
+<section class="p-5 d-flex justify-content-start align-items-center" 
+    style="
+        background : url('/static/images/mask-background.jpg');
+        background-size : cover;
+        min-height : 73vh;
+    ">
 {% if messages %}
 <div class="alert alert-success">
     {% for message in messages %}

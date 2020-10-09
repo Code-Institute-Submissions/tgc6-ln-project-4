@@ -25,3 +25,9 @@ body {
 .ls-2 {
     letter-spacing: 2px;
 }
+
+@media screen and (max-width : 768px) {
+    .ls-4 {
+        letter-spacing: 1px
+    }
+}

@@ -34,7 +34,7 @@
             ">   
         {% if request.user.is_authenticated %}
             <span class="font-italic font-weight-bold ml-auto"> User : {{request.user}}</span>,
-            <a class="text-dark m-0 font-italic py-0 px-1" href="/accounts/logout"> Logout</a>
+            <a class="text-dark m-0 font-italic py-0 px-1" href="/accounts/logout"> <u>Logout</u></a>
         {% else %}
             <a class="text-dark" href="/accounts/login">
             <i class="fas fa-man text-danger"></i>&nbsp <u>Login</u> </a> |
@@ -43,8 +43,10 @@
         </div>
         <!-- LOGO -->
         <div class="d-flex align-items-center flex-column">
-            <img src="/static/images/mask-logo.png"style="height:100px;"> 
-            <a class="brand-name text-center text-dark" href="#">theMASKshop</a>
+            <a class="nav-link" href="{% url 'home_route'%}">
+                <img src="/static/images/mask-logo.png" style="height:100px;"> 
+            </a>
+            <a class="brand-name text-center text-dark" href="{% url 'home_route'%}">theMASKshop</a>
         </div>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -84,7 +86,7 @@
         <div class="d-inline d-md-none" >
         {% if request.user.is_authenticated %}
             <span class="font-italic font-weight-bold ml-auto mr-0"> User : {{request.user}}</span>, 
-            <a class=" text-dark font-italic m-0 px-1 py-0" href="/accounts/logout"> Logout</a>
+            <a class=" text-dark font-italic m-0 px-1 py-0" href="/accounts/logout"><u> Logout </u></a>
         {% else %}
             <a class="text-dark" href="/accounts/login">
             <i class="fas fa-man text-danger"></i>&nbsp <u>Login</u> </a> |
