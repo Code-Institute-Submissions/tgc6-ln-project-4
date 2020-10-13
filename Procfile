@@ -1,0 +1,1 @@
+web: gunicorn tgc6-In-project-4.wsgi:application
