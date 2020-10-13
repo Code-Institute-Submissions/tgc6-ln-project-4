@@ -30,7 +30,7 @@ SECRET_KEY = 'stl(ckm2bu$*fq1z7(4iykhipkg&t$x%b8#lj8w&*&@-_5u)1d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["lionel-proj4.herokuapp.com","*"]
 
 # Application definition
 
