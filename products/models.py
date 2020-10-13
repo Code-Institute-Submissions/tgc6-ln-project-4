@@ -9,7 +9,7 @@ class Product(models.Model):
                                         max_digits=5,
                                         decimal_places=2)
     quantity = models.IntegerField(blank=False)
-    pic = CloudinaryField()
+    cover = CloudinaryField()
 
     def __str__(self):
         return self.name

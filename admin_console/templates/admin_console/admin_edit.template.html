@@ -1,9 +1,9 @@
-{% extends 'base.template.html' %}
+{% extends "base.template.html" %}
 {% load crispy_forms_tags %}
-{% load cloudinary %}
 {% load static %}
+{% load cloudinary %}
 
-{%block content %}
+{% block content %}
 <section class="p-md-5 p-3 d-flex justify-content-start align-items-center" 
     style="
         background : url('/static/images/mask-background.jpg');
@@ -11,41 +11,35 @@
         min-height : 73vh;
     ">    <!-- Adding New Product -->
     <div class="col-md-6 col-10">
-        <h2 class="ls-4">Add New Product</h2>
-        <form method="POST" enctype="multipart/form-data" id="form">
-        {% csrf_token %}
-        {{form|crispy}}
-        <input type="submit" class="btn btn-light border"/>
-        </form>
-    
-        <!-- for debugging -->
+        <h1>Update Product information here</h1>
+        <div id="form">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy}}
+                <input type="Submit"/>
+            </form>
+        </div>
+        <!-- show the updating status -->
         <div class="status">
             <h2>Status</h2>
             <span class="status_value">Idle</span>
         </div>
-
-        <div class="uploaded_info_holder">
-        </div>
-        <!-- end debugging -->
     </div>
 </section>
-{%endblock%}
+{% endblock %}
 
 {% block js %}
 {% cloudinary_includes %}
 {% cloudinary_js_config %}
 <script>
-
-<!-- prettydump is from cloudinary documentation -->
-function prettydump(obj) {
+  function prettydump(obj) {
     ret = ""
     $.each(obj, function(key, value) {
       ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
     });
     return ret;
   }
-
-$(function(){    
+  $(function(){    
     $("input[type=file]").cloudinary_fileupload({
         'dropZone':'#form', // make sure our form has this id
         'start':function() {
@@ -55,11 +49,14 @@ $(function(){
             $('.status_value').text("Uploading...")
         }
     }).on('cloudinarydone', function(e, data){
-        $('.status_value').text("File is uploaded");
+        $('.status_value').text("upload done");
         
         // to display debug information
         var info = $('<div class="uploaded_info"/>');
         $(info).append($('<div class="data"/>').append(prettydump(data.result)));
+        console.log(data.result)
+        console.log(data.result.url)
+        
         $(info).append($('<div class="image"/>').append(
            $.cloudinary.image(data.result.public_id, {
            format: data.result.format, width: 150, height: 150, crop: "fill"
@@ -73,12 +70,15 @@ $(function(){
            format: data.result.format, width: 150, height: 150, crop: "fill"
            })
         ))
-
+        
+        
 
     })
 })
-
-
 </script>
-
+<br/>
 {% endblock %}
+
+<!-- http://res.cloudinary.com/dnu7u3idz/image/upload/v1602381917/va2q7ahji7usugxwsaej.jpg
+
+http://res.cloudinary.com/dnu7u3idz/image/upload/v1602382037/kytgug19anhkdbqokcmm.png -->

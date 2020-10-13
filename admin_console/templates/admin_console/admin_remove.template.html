@@ -1,0 +1,22 @@
+{% extends "base.template.html" %} 
+
+
+
+{% block content %}
+<section
+  class="p-5 d-flex justify-content-start align-items-center"
+  style="
+    background: url('/static/images/mask-background.jpg');
+    background-size: cover;
+    min-height: 73vh;
+  "
+>
+  <div class="border p-4 rounded bg-light">
+    <form method="POST">
+      {% csrf_token %} 
+      Are you sure you want to delete the <b>{{product.name}}</b>
+      <input type="submit" value="Yes, delete" />
+    </form>
+  </div>
+</section>
+{% endblock %}

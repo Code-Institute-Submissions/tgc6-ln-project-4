@@ -5,7 +5,7 @@
 {%block content%}
 <section class="p-md-5 p-3 row">
   <!-- Display list of products -->
-  <div class="col-8">
+  <div class="col-md-8 col-12">
     <table class="table">
       <thead>
         <tr>
@@ -13,7 +13,8 @@
           <th scope="col">Description</th>
           <th scope="col">Quantity</th>
           <th scope="col">Selling Price</th>
-          <th scope="col">Picture</th>
+          <th scope="col" class="d-none d-md-block">Picture</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -23,20 +24,26 @@
           <td>{{p.name}}</td>
           <td>{{p.quantity}}</td>
           <td>@{{p.selling_price}}</td>
-          <td>{% cloudinary p.pic width=80 height=80 crop="fill" %}</td>
+          <td class="d-none d-md-block">{% cloudinary p.cover width=80 height=80 crop="fill" %}</td>
+          <td>
+            <a href="{% url 'admin_edit' product_id=p.id %}">
+                <i class="far fa-edit text-primary"></i>
+            </a> | 
+            <a href="{% url 'admin_remove' product_id=p.id %}" class="text-danger"> X remove</a>
+          </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
   <!-- Entry for new product -->
-  <div class="col-4 p-md-5 p-3">
-    <div class="border rounded bg-light p-3">
-    <form method="POST" action="{% url 'admin_add' %}">
-        {% csrf_token %}
-        {{ form|crispy}}
-        <button class="btn btn-light" type="submit">Add product</button>
-        </form>
+  <div class="col-md-4 col-12 p-md-5 p-3">
+    <div class="border rounded bg-light p-3 row">
+        <div class="col-12">
+        <a href= "{% url 'admin_add' %}" class="btn btn-light" type="submit">Add product</a>
+    </div>
+ 
+        
     </div>
   </div>
 </section>
