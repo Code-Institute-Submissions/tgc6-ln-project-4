@@ -1,1 +1,1 @@
-web: gunicorn tgc6-ln-project-4.wsgi:application
+web: gunicorn faceMaskShop.wsgi:application
