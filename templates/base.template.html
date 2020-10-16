@@ -81,7 +81,7 @@
                     ><i class="fas fa-shopping-cart"></i> Cart</a
                     >
                     </li>
-                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'admin_panel' %}">Admin panel</a>
                     </li>

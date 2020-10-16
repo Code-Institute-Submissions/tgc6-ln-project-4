@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, 
 from django.views.decorators.csrf import csrf_exempt
 from products.views import index
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 
 # import settings so that we can access the public stripe key
 from django.conf import settings
@@ -11,8 +13,7 @@ from products.models import Product
 from django.contrib.sites.models import Site
 
 # Create your views here.
-
-
+@login_required    
 def charge(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     # cart = request.session.get('shopping_cart', {})
