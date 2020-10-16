@@ -1,39 +1,114 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# **PROJECT 4 : THEMASKSHOP E-COMMERCE WEBSITE**
 
-Welcome USER_NAME,
+## Objective    
+**theMASKshop** is a e-commerce platform that allows sellers and buyers to transact on the platform. As mask have become an essential item, the platform allows different mask-makers and resellers to market their product. 
+    
+### SCOPE
+The website allows User to :
+* Allow User to register for new account and login 
+* CREATE / READ / UPATE / DELETE a dish for sale
+    
+### Demo
+A live demo can be found here. https://lionel-proj4.herokuapp.com/
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+### UX
+User Story
+There are 03 types of users for this website 
+* Owner
+    - set  up a platform for buyer and resellers to interact and engage in a sales transaction
+    - generate revenue from hosting fee and potential advertising fees on advertising banners in the future.
+* Registered User
+    - surf for product to buy and make a purchase through a secured platform
+* Register Resellers
+    - create and list their product suites
+    - leverage on the potential customer base from the platform to market their product
+    - generate sales through the platform 
 
-## Gitpod Reminders
+### Technologies Used
+1. HTML, CSS & Javascript 
+2. Bootstrap 
+3. Python 
+4. SQLite (during development)
+5. Postgres (when deployed onto Heroku)
+6. Heroku (deployment)
+8. Django Crispy Forms for styling Forms
+9. Cloudinary for storing images 
+10. Stripe for handling payment 
+11. Whitenoise to manage static file 
+12. Gunicorn 
+13. Gitpod online IDE
+14. CrispyForms (Together with Boostrap 4) https://django-crispy-forms.readthedocs.io/en/latest/install.html#
+16. Fontawesome
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+### Features
+				
+**My Design of the site :**
 
-A blue button should appear to click: *Make Public*,
+* Easy for resellers to navigate and post / update and remove their products
+* Simple and easy for user to browse and make purchase for the products
+    
+_Current Limitations:_
+* no search function at the moment due to time limitation
+* Social media links not link not set up
 
-Another blue button should appear to click: *Open Browser*.
+### Testing
+Manual Testing is done to ensure that the all functions are functional.
+Test Results as follows :
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+*No* | *Steps* | *Expected Results* | *Observations*
+--- | --- | --- | ---
+**SUPERUSER LOGIN**|
+1  | Upon login | `option __Admin Console__ appears on navbar` | **Pass*
+2  | Click on **Admin console** | `route to admin console and display all products` | **Pass*
+3  | Click on **Add Product** | `route to add product page for user to enter and submit in new product` | **Pass*
+4  | Click on **Edit (Pen logo)** | `route to edit a product and submit in the changes` | **Pass*
+5  | Click on **Remove Product** | `route to remove product page for user to confirm the removal of product` | **Pass*
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
+*No* | *Steps* | *Expected Results* | *Observations*
+--- | --- | --- | ---
+**Normal Browsers**|
+1 | On index page, click on **desired product 'image' or 'name'** | `Route to display selected product information`| **Pass** 
+2 | In product detail page, click **Add to cart** |`add quantity of 1 to cart`|**Pass**
+3 | In cart page, click **+ sign** |`add 1 to the quantity`|**Pass**
+4 | In cart page, click **- sign** |`reduce 1 from the quantity`|**Pass**
+5 | In cart page, click **checkout** |`route to summary of items and payment option`|**Pass**
+6 | In payment page, click **Pay with card** |`Stripe default payment form pops up for user to key and submit`|**Pass**
+7 | In payment form, click **Pay** |`aPayment made and routed to index page with message for payment made`|**Pass**
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+_To test checkout please key in the following credit card details:_
 
-## Updates Since The Instructional Video
+    Email: -any email address of your choosing-
+    Card information: 4242 4242 4242 4242
+    MM/YY: 12 / 22
+    CVC: -any number of your choosing 3 or 4 digit-
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Deployment
+This site is hosted using Heroku App Link : 
+https://lionel-proj4.herokuapp.com/
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+All codes are uploaded to GitHub and links are made to Heroku by installing in bash terminal in projects.
+Regular commits are push to the Github subsequently push to heroku to deploy.
+.gitignore file is added to remove files that are not required or files that we do not wish to be uploaded to Github
 
---------
+_Deploy Heroku:_
 
-Happy coding!
+    i) Install Heroku using bash
+    ii) Login to Heroku
+    iii) Install gunicorn
+    iv) Create Procfile and requirements.txt
+    V) Commit and push to Heroku 
+    vi) Set up the Environment Vasriables
+    vii) Update Dependencies
+
+
+### Credits
+Uses W3School for many reference (https://www.w3schools.com/)
+Uses Fontawesome for the social media icons (https://fontawesome.com/)
+Uses Bootstrap for templates (https://getbootstrap.com/)
+
+ 
