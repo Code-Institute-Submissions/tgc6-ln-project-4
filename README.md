@@ -6,14 +6,14 @@
 ### SCOPE
 The website allows User to :
 * Allow User to register for new account and login 
-* CREATE / READ / UPATE / DELETE a dish for sale
+* CREATE / READ / UPATE / DELETE a product for sale
     
 ### Demo
 A live demo can be found here. https://lionel-proj4.herokuapp.com/
 
 ### UX
 User Story
-There are 03 types of users for this website 
+There are mainly 3 types of users for this website 
 * Owner
     - set  up a platform for buyer and resellers to interact and engage in a sales transaction
     - generate revenue from hosting fee and potential advertising fees on advertising banners in the future.
@@ -42,9 +42,8 @@ There are 03 types of users for this website
 
 
 ### Features
-				
+		
 **My Design of the site :**
-
 * Easy for resellers to navigate and post / update and remove their products
 * Simple and easy for user to browse and make purchase for the products
     
@@ -98,8 +97,6 @@ _To test checkout please key in the following credit card details:_
     CVC: -any number of your choosing 3 or 4 digit-
 
 
-
-
 ### Deployment
 This site is hosted using Heroku App Link : 
 https://lionel-proj4.herokuapp.com/
@@ -108,20 +105,26 @@ All codes are uploaded to GitHub and links are made to Heroku by installing in b
 Regular commits are push to the Github subsequently push to heroku to deploy.
 .gitignore file is added to remove files that are not required or files that we do not wish to be uploaded to Github
 
-_Deploy Heroku:_
+To deploy on Heroku:
+* Download or Clone the master branch from github, https://github.com/darylkangjh/Project-4
+* To list all the requirements in requirements.txt, run the following command in terminal:
+    * pip3 freeze --local > requirements.txt
+    * Procfile need to be created to run gunicorn upon deployment
+    * Git push to Heroku Master after all the documents are properly set up
+    * All public keys and private keys for the following need to be added to in Heroku Config Vars settings:
+        * CLOUDINARY_API_KEY
+        * CLOUDINARY_API_SECRET
+        * CLOUDINARY_CLOUD_NAME
+        * DATABASE_URL
+        * STRIPE_PUBLISHABLE_KEY
+        * STRIPE_SECRET_KEY
 
-    i) Install Heroku using bash
-    ii) Login to Heroku
-    iii) Install gunicorn
-    iv) Create Procfile and requirements.txt
-    V) Commit and push to Heroku 
-    vi) Set up the Environment Vasriables
-    vii) Update Dependencies
-
+### Media
+Pictures are extracted from www.pexel.com
 
 ### Credits
 Uses W3School for many reference (https://www.w3schools.com/)
-Uses Fontawesome for the social media icons (https://fontawesome.com/)
+Uses Fontawesome for the various icons (https://fontawesome.com/)
 Uses Bootstrap for templates (https://getbootstrap.com/)
 
  
