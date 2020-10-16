@@ -2,10 +2,12 @@
 {%block content%}
 <div class="container">
     <div class="row">
-        {% cloudinary product.cover class="col-lg-6 col-12 p-0 img-fluid" %}
-        <div class="col-lg-6 p-3 col-sm-10 d-flex flex-column justify-content-center align-items-center">
-            <p class="p-3">{{product.name}}</p>
-            <p class="p-3">${{product.selling_price}}</p>
+        <div class="col-lg-6 col-10 mx-auto">
+        {% cloudinary product.cover class="img-fluid" %}
+        </div>
+        <div class="col-lg-6 col-10 p-3 text-center mx-auto">
+            <p class="p-2">{{product.name}}</p>
+            <p class="p-2">${{product.selling_price}}</p>
             <a class="btn btn-info" href="{% url 'add_to_cart' product_id=product.id %}">Add to cart</a>
         </div>   
     </div>
