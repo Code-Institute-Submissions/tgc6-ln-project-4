@@ -53,6 +53,19 @@ _Current Limitations:_
 * Social media links not link not set up
 
 ### Testing
+(i) Mobile Responsiveness
+
+This site was tested across multiple devices multiple mobile devices (iPhone 4, 5, 7: Chrome and Safari, iPad, Samsung Galaxy) to ensure compatibility and responsiveness.)
+
+(ii) Browser Compatibility
+
+This site was tested across multiple devices multiple mobile devices (iPhone 4, 5, 7: Chrome and Safari, iPad, Samsung Galaxy) to ensure compatibility and responsiveness.)
+
+(iii) User authentication restricts access and allows superusers/admin to create, edit and delete games. They will also be able to delete reviews.
+
+(iv) User authentication restricts access and allows logged in users to add games to cart and create reviews.
+
+(v) Test Cases
 Manual Testing is done to ensure that the all functions are functional.
 Test Results as follows :
 
