@@ -60,11 +60,9 @@ This site was tested across multiple devices multiple mobile devices (iPhone 4, 
 
 This site was tested across multiple devices multiple mobile devices (iPhone 4, 5, 7: Chrome and Safari, iPad, Samsung Galaxy) to ensure compatibility and responsiveness.)
 
-(iii) User authentication restricts access and allows superusers/admin to create, edit and delete games. They will also be able to delete reviews.
+(iii) User authentication restricts access and allows superusers to create, edit and delete product.
 
-(iv) User authentication restricts access and allows logged in users to add games to cart and create reviews.
-
-(v) Test Cases
+(iv) Test Cases
 Manual Testing is done to ensure that the all functions are functional.
 Test Results as follows :
 
@@ -106,18 +104,17 @@ Regular commits are push to the Github subsequently push to heroku to deploy.
 .gitignore file is added to remove files that are not required or files that we do not wish to be uploaded to Github
 
 To deploy on Heroku:
-* Download or Clone the master branch from github, https://github.com/darylkangjh/Project-4
 * To list all the requirements in requirements.txt, run the following command in terminal:
-    * pip3 freeze --local > requirements.txt
-    * Procfile need to be created to run gunicorn upon deployment
-    * Git push to Heroku Master after all the documents are properly set up
-    * All public keys and private keys for the following need to be added to in Heroku Config Vars settings:
-        * CLOUDINARY_API_KEY
-        * CLOUDINARY_API_SECRET
-        * CLOUDINARY_CLOUD_NAME
-        * DATABASE_URL
-        * STRIPE_PUBLISHABLE_KEY
-        * STRIPE_SECRET_KEY
+* pip3 freeze --local > requirements.txt
+* Procfile need to be created to run gunicorn upon deployment
+* Git push to Heroku Master after all the documents are properly set up
+* All public keys and private keys for the following need to be added to in Heroku Config Vars settings:
+- CLOUDINARY_API_KEY
+- CLOUDINARY_API_SECRET
+- CLOUDINARY_CLOUD_NAME
+- DATABASE_URL
+- STRIPE_PUBLISHABLE_KEY
+- STRIPE_SECRET_KEY
 
 ### Media
 Pictures are extracted from www.pexel.com
